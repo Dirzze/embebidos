@@ -19,7 +19,14 @@ function LED1_Off(){
 }
 
 
-
+function Pasar(){
+	alert("Agu...");
+	console.log("Pasar");
+	message = new Paho.MQTT.Message("ON");
+    	message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
+    	client.send(message);
+	//document.getElementById("sensor").innerHTML="Pasar";
+}
 
 
 
