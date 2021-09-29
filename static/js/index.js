@@ -10,9 +10,9 @@ function LED1_On() {
   
 }
 function LED1_Off(){	
-	alert("led off");
+	//alert("led off");
 	console.log("led off");
-	message = new Paho.MQTT.Message("OFF");
+	//message = new Paho.MQTT.Message("OFF");
     	message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
     	client.send(message);
 	//document.getElementById("sensor").innerHTML="led off";
@@ -20,9 +20,9 @@ function LED1_Off(){
 
 
 function Pasar(){
-	alert("Agu...");
+	//alert("Agu...");
 	console.log("Pasar");
-	message = new Paho.MQTT.Message("ON");
+	//message = new Paho.MQTT.Message("ON");
     	message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
     	client.send(message);
 	//document.getElementById("sensor").innerHTML="Pasar";
@@ -76,6 +76,8 @@ function Pasar(){
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-	  document.getElementById("sensor").innerHTML=message.payloadString;
+var a = message.payloadString.split("-")
+document.getElementById("sensor1").innerHTML=a[0];
+document.getElementById("sensor2").innerHTML=a[1];
   }
   
