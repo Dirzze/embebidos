@@ -4,7 +4,7 @@ function Historial_1() {
   
   console.log("Pedir Registro1");
 
-  message = new Paho.MQTT.Message("REGISTRO1");
+  message = new Paho.MQTT.Message("REGISTROSENSOR1");
       message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
       client.send(message);
   //document.getElementById("sensor").innerHTML="led off";
@@ -15,7 +15,7 @@ function Historial_2(){
 
   console.log("Pedir Registro2");
 
-  message = new Paho.MQTT.Message("REGISTRO2");
+  message = new Paho.MQTT.Message("REGISTROSENSOR2");
       message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
       client.send(message);
   //document.getElementById("sensor").innerHTML="led off";
@@ -100,10 +100,10 @@ function Mostrar_2() {
     var Mensaje=message.payloadString;//Se guarda el mensaje en una variable
     var Registro=Mensaje.split('_')
 
-    if (Registro[0]==("R1")){//Cuando se conecta por primera vez a la tarjeta
+    if (Registro[0]==("REGISTRO1")){//Cuando se conecta por primera vez a la tarjeta
       document.getElementById("Historial1").innerHTML=Registro[1];//Muestra un mensaje de recibido en la web
     }
-    if (Registro[0]==("R2")){//Cuando se conecta por primera vez a la tarjeta
+    if (Registro[0]==("REGISTRO2")){//Cuando se conecta por primera vez a la tarjeta
       document.getElementById("Historial2").innerHTML=Registro[1];//Muestra un mensaje de recibido en la web
     }
 
