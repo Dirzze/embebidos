@@ -5,7 +5,7 @@ function LED1_On() {
   console.log("Pedir Registro");
 
   message = new Paho.MQTT.Message("REGISTRO1");
-      message.destinationName = "elitearevalo31@gmail.com/t1";
+      message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
       client.send(message);
   //document.getElementById("sensor").innerHTML="led off";
   
@@ -15,7 +15,7 @@ function LED1_Off(){
   console.log("Pedir Registro");
 
   message = new Paho.MQTT.Message("REGISTRO2");
-      message.destinationName = "elitearevalo31@gmail.com/t1";
+      message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
       client.send(message);
   //document.getElementById("sensor").innerHTML="led off";
   
