@@ -104,7 +104,7 @@ function Mostrar_2() {
       document.getElementById("Historial1").innerHTML=Registro[1];//Muestra un mensaje de recibido en la web
     }
     if (Registro[0]==("R2")){//Cuando se conecta por primera vez a la tarjeta
-      document.getElementById("Historia2").innerHTML=Registro[1];//Muestra un mensaje de recibido en la web
+      document.getElementById("Historial2").innerHTML=Registro[1];//Muestra un mensaje de recibido en la web
     }
 
     var Sensores=Mensaje.split(':');//Divide el formato en que llegan los valores a razón del espacio en blanco
