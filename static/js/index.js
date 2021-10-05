@@ -2,7 +2,7 @@
 
 function Historial_1() {
   
-  console.log("Pedir Registro");
+  console.log("Pedir Registro1");
 
   message = new Paho.MQTT.Message("REGISTRO1");
       message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
@@ -13,7 +13,7 @@ function Historial_1() {
 
 function Historial_2(){
 
-  console.log("Pedir Registro");
+  console.log("Pedir Registro2");
 
   message = new Paho.MQTT.Message("REGISTRO2");
       message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
