@@ -1,39 +1,24 @@
 //https://www.eclipse.org/paho/clients/js/
 
 function LED1_On() {
-	alert("led on");
-	console.log("led on");
-	//document.getElementById("sensor").innerHTML="led on";
-	nnerHTML="led on";
-	message = new Paho.MQTT.Message("ON");
-    	message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
-    	client.send(message);
-function Botton() {
-	//alert("led on");
-	console.log("led on");
-	//document.getElementById("sensor").innerHTML="led on";
-	nnerHTML="led on";
-	message = new Paho.MQTT.Message("ON");
-    	message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
-    	client.send(message);
-}
-function LED1_Off(){	
-	alert("led off");
-	console.log("led off");
-	//message = new Paho.MQTT.Message("OFF");
-    	message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
-    	client.send(message);
-	//document.getElementById("sensor").innerHTML="led off";
-}
+  
+  console.log("Pedir Registro");
 
+  message = new Paho.MQTT.Message("REGISTRO1");
+      message.destinationName = "elitearevalo31@gmail.com/t1";
+      client.send(message);
+  //document.getElementById("sensor").innerHTML="led off";
+  
+}
+function LED1_Off(){
 
-function Pasar(){
-	//alert("Agu...");
-	console.log("Pasar");
-	//message = new Paho.MQTT.Message("ON");
-    	message.destinationName = "dirzze.morocho@unach.edu.ec/t1";
-    	client.send(message);
-	//document.getElementById("sensor").innerHTML="Pasar";
+  console.log("Pedir Registro");
+
+  message = new Paho.MQTT.Message("REGISTRO2");
+      message.destinationName = "elitearevalo31@gmail.com/t1";
+      client.send(message);
+  //document.getElementById("sensor").innerHTML="led off";
+  
 }
 
 
@@ -83,10 +68,20 @@ function Pasar(){
 
   // called when a message arrives
   function onMessageArrived(message) {
-    console.log("onMessageArrived:"+message.payloadString);
-var a = message.payloadString.split("-")
-document.getElementById("sensor1").innerHTML=a[0];
-document.getElementById("sensor2").innerHTML=a[1];
-document.getElementById("sensor3").innerHTML=a[2];
+        console.log("onMessageArrived:"+message.payloadString);
+    
+    var Mensaje=message.payloadString;//Se guarda el mensaje en una variable
+    var Registro=Mensaje.split('_')
+
+    if (Registro[0]==("R1")){//Cuando se conecta por primera vez a la tarjeta
+      document.getElementById("Historial").innerHTML=Registro[1];//Muestra un mensaje de recibido en la web
+    }
+    if (Registro[0]==("R2")){//Cuando se conecta por primera vez a la tarjeta
+      document.getElementById("Historial").innerHTML=Registro[1];//Muestra un mensaje de recibido en la web
+    }
+
+    var Sensores=Mensaje.split(',');//Divide el formato en que llegan los valores a razón del espacio en blanco
+    document.getElementById("sensor1").innerHTML=Sensores[0];//Muestra el primer valor en la etiqueta
+    document.getElementById("sensor2").innerHTML=Sensores[1];//Muestra el segundo valor en la etiqueta
   }
   
