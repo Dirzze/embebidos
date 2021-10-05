@@ -10,6 +10,7 @@ function Historial_1() {
   //document.getElementById("sensor").innerHTML="led off";
   
 }
+
 function Historial_2(){
 
   console.log("Pedir Registro");
